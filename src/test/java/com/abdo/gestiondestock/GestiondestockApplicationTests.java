@@ -9,5 +9,4 @@ class GestiondestockApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
 }

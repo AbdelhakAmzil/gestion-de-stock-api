@@ -1,3 +1,26 @@
 spring:
-  application:
-    name: gestiondestock
+  datasource:
+    url: jdbc:mysql://localhost:3306/gestionstock?createDatabaseIfNotExist=true&useSSL=false&useUnicode=true&serverTimezone=UTC
+    username: root
+    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    database: MYSQL
+    show-sql: false
+    properties:
+      hibernate:
+        session_factory:
+          statement_inspector: com.abdo.gestiondestock.interceptor.Interceptor
+        dialect: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
+
+server:
+  port: 8081
+
+flickr:
+  apiKey: e6017aef7bebeffc113de04efec554b4
+  apiSecret: a2e10f69ece5c67c
+  appKey: 72157718699655397-a36ae267891db7e7
+  appSecret: 04e870e57e18c55b
