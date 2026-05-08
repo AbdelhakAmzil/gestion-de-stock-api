@@ -46,6 +46,7 @@ public class SecurityConfiguration {
                         .requestMatchers(
                                 "/gestiondestock/v1/auth/authenticate",
                                 "/gestiondestock/v1/entreprises/create",
+                                "/gestiondestock/v1/utilisateurs/create",
                                 "/v3/api-docs/**",
                                 "/swagger-ui/**",
                                 "/swagger-ui.html"
