@@ -3,11 +3,16 @@ package com.abdo.gestiondestock.dto;
 import com.abdo.gestiondestock.model.LigneCommandeClient;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.math.BigDecimal;
+
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class LigneCommandeClientDto {
 
     private Integer id;

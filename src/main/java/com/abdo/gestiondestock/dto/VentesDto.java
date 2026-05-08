@@ -3,11 +3,16 @@ package com.abdo.gestiondestock.dto;
 import com.abdo.gestiondestock.model.Ventes;
 import java.time.Instant;
 import java.util.List;
+
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class VentesDto {
 
     private Integer id;

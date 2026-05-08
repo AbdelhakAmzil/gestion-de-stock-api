@@ -3,11 +3,16 @@ package com.abdo.gestiondestock.dto;
 import com.abdo.gestiondestock.model.CommandeFournisseur;
 import com.abdo.gestiondestock.model.LigneCommandeFournisseur;
 import java.math.BigDecimal;
+
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class LigneCommandeFournisseurDto {
 
     private Integer id;

@@ -1,11 +1,15 @@
 package com.abdo.gestiondestock.dto;
 
 import com.abdo.gestiondestock.model.Adresse;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class AdresseDto {
 
     private String adresse1;
