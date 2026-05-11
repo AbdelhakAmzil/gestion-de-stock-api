@@ -15,7 +15,8 @@ public class Interceptor implements StatementInspector {
             if (StringUtils.hasLength(entityName)
                     && !entityName.toLowerCase().contains("entreprise")
                     && !entityName.toLowerCase().contains("roles")
-                    && StringUtils.hasLength(idEntreprise)) {
+                    && StringUtils.hasLength(idEntreprise)
+                    && StringUtils.hasLength(idEntreprise)) {  // ✅ seulement si idEntreprise présent) {
 
                 if (sql.contains("where")) {
                     sql = sql + " and " + entityName + ".identreprise = " + idEntreprise;
@@ -24,6 +25,7 @@ public class Interceptor implements StatementInspector {
                 }
             }
         }
+        //System.out.println("SQL intercepté, idEntreprise MDC: " + MDC.get("idEntreprise"));
         return sql;
     }
 }
