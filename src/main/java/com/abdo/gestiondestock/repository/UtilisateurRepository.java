@@ -8,8 +8,8 @@ import org.springframework.data.repository.query.Param;
 
 public interface UtilisateurRepository extends JpaRepository<Utilisateur, Integer> {
 
-    // JPQL query
-    @Query(value = "select u from Utilisateur u where u.email = :email")
+
+    @Query("select u from Utilisateur u left join fetch u.roles left join fetch u.entreprise where u.email = :email")
     Optional<Utilisateur> findUtilisateurByEmail(@Param("email") String email);
 
 }

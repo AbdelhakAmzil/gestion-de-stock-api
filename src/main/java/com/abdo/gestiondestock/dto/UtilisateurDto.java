@@ -50,7 +50,13 @@ public class UtilisateurDto {
                 .dateDeNaissance(utilisateur.getDateDeNaissance())
                 .adresse(AdresseDto.fromEntity(utilisateur.getAdresse()))
                 .photo(utilisateur.getPhoto())
-                .entreprise(EntrepriseDto.fromEntity(utilisateur.getEntreprise()))
+                //.entreprise(EntrepriseDto.fromEntity(utilisateur.getEntreprise()))
+                .entreprise(utilisateur.getEntreprise() != null ?
+                        EntrepriseDto.builder()
+                        .id(utilisateur.getEntreprise().getId())
+                        .nom(utilisateur.getEntreprise().getNom())
+                        .email(utilisateur.getEntreprise().getEmail())
+                        .build() : null)
                 .roles(
                         utilisateur.getRoles() != null ?
                                 utilisateur.getRoles().stream()

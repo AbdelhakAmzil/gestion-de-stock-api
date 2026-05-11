@@ -22,9 +22,9 @@ public class EntrepriseValidator {
         if (!StringUtils.hasLength(dto.getNom())) {
             errors.add("Veuillez renseigner le nom de l'entreprise");
         }
-        if (!StringUtils.hasLength(dto.getDescription())) {
-            errors.add("Veuillez reseigner la description de l'entreprise");
-        }
+//        if (!StringUtils.hasLength(dto.getDescription())) {
+//            errors.add("Veuillez reseigner la description de l'entreprise");
+//        }
         if (!StringUtils.hasLength(dto.getCodeFiscal())) {
             errors.add("Veuillez reseigner le code fiscal de l'entreprise");
         }

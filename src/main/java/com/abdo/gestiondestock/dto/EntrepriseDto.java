@@ -33,6 +33,7 @@ public class EntrepriseDto {
 
     private String steWeb;
 
+    private String password;  // ✅ ajouter
 
     @JsonIgnore
     private List<UtilisateurDto> utilisateurs;

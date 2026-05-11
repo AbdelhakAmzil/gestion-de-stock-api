@@ -2,6 +2,7 @@ package com.abdo.gestiondestock.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -40,7 +41,8 @@ public class Entreprise extends AbstractEntity {
     @Column(name = "siteweb")
     private String steWeb;
 
-    @OneToMany(mappedBy = "entreprise")
+    @OneToMany(mappedBy = "entreprise", fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<Utilisateur> utilisateurs;
 
 }

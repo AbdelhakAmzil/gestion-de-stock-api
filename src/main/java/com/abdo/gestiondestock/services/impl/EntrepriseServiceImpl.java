@@ -43,11 +43,16 @@ public class EntrepriseServiceImpl implements EntrepriseService {
             log.error("Entreprise is not valid {}", dto);
             throw new InvalidEntityException("L'entreprise n'est pas valide", ErrorCodes.ENTREPRISE_NOT_VALID, errors);
         }
+
+        // ✅ sauvegarder le password avant qu'il soit perdu
+        String password = dto.getPassword() != null ? dto.getPassword() : generateRandomPassword();
+
+
         EntrepriseDto savedEntreprise = EntrepriseDto.fromEntity(
                 entrepriseRepository.save(EntrepriseDto.toEntity(dto))
         );
 
-        UtilisateurDto utilisateur = fromEntreprise(savedEntreprise);
+        UtilisateurDto utilisateur = fromEntreprise(savedEntreprise, password);// ✅ passer le password
 
         UtilisateurDto savedUser = utilisateurService.save(utilisateur);
 
@@ -61,13 +66,15 @@ public class EntrepriseServiceImpl implements EntrepriseService {
         return  savedEntreprise;
     }
 
-    private UtilisateurDto fromEntreprise(EntrepriseDto dto) {
+    private UtilisateurDto fromEntreprise(EntrepriseDto dto, String password) { // ✅ accepter le password
         return UtilisateurDto.builder()
                 .adresse(dto.getAdresse())
                 .nom(dto.getNom())
                 .prenom(dto.getCodeFiscal())
                 .email(dto.getEmail())
-                .moteDePasse(generateRandomPassword())
+                //.moteDePasse(generateRandomPassword())
+                //.moteDePasse(dto.getPassword() != null ? dto.getPassword() : generateRandomPassword()) // ✅
+                .moteDePasse(password)  // ✅ utiliser le vrai password
                 .entreprise(dto)
                 .dateDeNaissance(Instant.now())
                 .photo(dto.getPhoto())
